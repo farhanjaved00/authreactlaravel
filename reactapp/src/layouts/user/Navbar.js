@@ -10,18 +10,14 @@ function Navbar(){
 
     const logoutSubmit = (e) =>{
         e.preventDefault();
-        axios.post('/api/logout').then(res => {
-            if(res.data.status ===200){
-               localStorage.removeItem('token');
+        localStorage.removeItem('token');
                localStorage.removeItem('first_name');
                localStorage.removeItem('last_name');
                localStorage.removeItem('email');
                localStorage.removeItem('phone');
                localStorage.removeItem('address');
-               swal("Success",res.data.message,"success");
+               swal("Success","Logout Successfully","success");
                history.push('/');
-             }
-        });
     }
 
     return (
